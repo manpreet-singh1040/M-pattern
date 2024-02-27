@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            height: 95vh;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button{
+            display: inline-flex;
+            height: 100px;
+            width: 200px;
+            background-color: rgb(231, 164, 57);
+            border: 3px solid black;
+            border-radius: 99px;
+            align-items: center;
+            padding: 10px;
+        }
+        .sun{
+            display: inline-block;
+            height: 70px;
+            width: 70px;
+            background-color: rgb(229, 236, 13);
+            border: 2px solid red;
+            border-radius: 99px;
+            position: relative;
+        }
+        .con{
+            display: inline-block;
+            background-color: black;
+            height: 95%;
+            width: 80%;
+        }
+        .button:hover{
+            cursor: pointer;
+        }
+        .car{
+            height: 50px;
+            width: 50px;
+            background-color: rgb(107, 255, 62);
+            margin-top: 25px;
+            position: relative;
+        }
+        @keyframes ani1 {
+            0%{
+                left: 0%;
+            }
+            100%{
+                left: 60%;
+                background-color: rgb(188, 213, 235);
+                border-color: black;
+            }
+        }
+    </style>
+    <div class="container">
+        <div class="con">
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+            <div class="car"></div>
+        </div>
+    </div>
+    <button class="b">click</button>
+    <script src="daynight.js"></script>
+</body>
+</html>
