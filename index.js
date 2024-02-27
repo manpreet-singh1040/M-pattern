@@ -49,24 +49,75 @@ b.addEventListener("click",()=>{
     {
         if(!press)
         {
-            e=setInterval(ani,1);
+            if(level==0)
+            {
+                e[level]=setInterval(ani,1);
+                level++;
+            }
+            else{
+
+                for(let i=0;i<level;i++)
+                {
+                    e[i]=setInterval(ani,1);
+                }
+            }
             press=true;
+            b.innerHTML=`<b>STOP!</b>`;
+            b.style.color=`red`;
+            b.style.backgroundColor=`beige`;
         }
         else{
-            clearInterval(e);
+            for(let i=0;i<level;i++)
+            {
+                clearInterval(e[i]);
+            }
             press=false;
+            b.innerHTML=`<b>START</b>`;
+            b.style.color=`greenyellow`;
+            b.style.backgroundColor=`black`;
         }
         
     }
 })
+document.getElementById('plus').addEventListener("click",()=>{
+   {
+    e[level]=setInterval(ani,1);
+    level++;
+    press=true;
+    b.innerHTML=`<b>STOP!</b>`;
+    b.style.color=`red`;
+    b.style.backgroundColor=`beige`;
+   }
+})
 
-let i=80;
+document.getElementById('minus').addEventListener("click",()=>{
+    
+    if(level==0)
+    {
+        clearInterval(e[0]);
+            press=false;
+            b.innerHTML=`<b>START</b>`;
+            b.style.color=`greenyellow`;
+            b.style.backgroundColor=`black`;
+    }
+    else{
+        clearInterval(e[level]);
+        level--;
+        document.getElementById('h').innerHTML=`<b>${level}</b>`;
+    }
+})
+
+
+let i=con.offsetWidth;
 let ani=()=>{
 
-    if(i>car[0].style.offsetWidth)
+    //console.log(i);
+    console.log(car[0].offsetWidth);
+    if(i>car[0].offsetWidth)
     {
         i=i-0.05;
-        con.style.width=`${i}%`;
+        con.style.width=`${i}px`;
     }
+    document.getElementById('h').innerHTML=`<b>${level}</b>`;
     race();
 }
